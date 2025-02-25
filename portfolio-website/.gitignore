@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+!portfolio-website/dist
 dist-ssr
 *.local
 
