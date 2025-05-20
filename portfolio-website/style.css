@@ -102,6 +102,10 @@ section.content:nth-of-type(3)::after {
   );
 }
 
+section.content:nth-of-type(3) > h2 {
+	position: relative;
+	z-index:1;
+}
 section.content:nth-of-type(3) > p {
   padding-block-end: 1rem;
 }
@@ -134,12 +138,27 @@ section.content:nth-of-type(3) > p {
 }
 .card:hover {
   transform: scale(1.1);
+	z-index:1;
 }
-.card:hover > * {
+.card:hover > *:not(.tooltip-hidden-text) {
   filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.3));
   transform: translateZ(15px);
 }
+.tooltip-hidden-text {
+	background-color: white;
+	color: var(--dark-color);
+	padding: .3rem;
+	border: 4px solid var(--main-color);
+	border-radius: .2rem;
+	pointer-events: none;
 
+	position: absolute;
+	inset: 100% 0 auto 0;
+	opacity: 0;
+}
+.card:hover > .tooltip-hidden-text {
+	opacity: 1;
+}
 
 @container main-content (min-width: 1200px) {
   section.content:nth-of-type(2) {
