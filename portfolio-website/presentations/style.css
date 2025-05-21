@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+}
+
+.reveal img {
+	max-width: 100%;
+	height: auto;
+}
+
+.nav-wrapper {
+	position: fixed;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1rem;
+	gap: .5rem;
+}
+
+button {
+	background: var(--local-color-bg, white);
+	padding: .7rem 1.2rem;
+	border: 2px solid var(--local-color-border, black);
+	border-radius: 5000px;
+	text-decoration: none;
+	color: var(--local-color-font, black);
+}
