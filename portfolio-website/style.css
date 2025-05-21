@@ -16,10 +16,71 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+button {
+	cursor: pointer;
+	
+	background-color: white;
+	border-radius: 5000px;
+	border: 2px solid black;
+
+	color: black;
+	text-align: center;
+
+	width: fit-content;
+	padding: .7rem 1.2rem;
+
+	transition: color, border-color, background-color;
+	transition-duration: 100ms;
+	transition-timing-function: ease-in-out;
+}
+
+button:hover {
+	color: white;
+	background-color: var(--dark-color);
+	border-color: white;
+}
+
+@property --center-ray {
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 0%;
+}
+
 #portfolio {
+	--size-ray: 20%;
+	--center-ray: calc(0% - (var(--size-ray) / 2));
+	--top-ray: calc(var(--center-ray) - (var(--size-ray) / 2));
+	--bottom-ray: calc(var(--center-ray) + (var(--size-ray) / 2));
+
 	container-type: inline-size;
 	container-name: main-content;
-	background-color: var(--dark-color);
+	background-image: linear-gradient(var(--dark-color) var(--top-ray),
+			var(--main-color) var(--center-ray),
+			var(--dark-color) var(--bottom-ray));
+
+	animation: wave-background 8s both 0ms infinite;
+	animation-timing-function: cubic-bezier(0.05, 0.25, 0.95, 0.55);
+}
+
+@keyframes wave-background {
+	0% {
+		/* -10% */
+		--center-ray: calc(0% - (var(--size-ray) / 2));
+	}
+
+	100% {
+		/* 110% */
+		--center-ray: calc(100% + (var(--size-ray) / 2));
+	}
+}
+
+.js-paused {
+	animation-play-state: paused !important;
+}
+
+#portfolio>.button-toggle-disco {
+	position: fixed;
+	inset: 1rem 1rem auto auto;
 }
 
 section {
@@ -34,7 +95,7 @@ section.header-section {
 	padding-block: 2.5rem;
 	background-image: linear-gradient(135deg,
 			var(--main-color),
-			var(--dark-color) 85%);
+			transparent 85%);
 }
 
 /* Section 1 */
@@ -61,7 +122,7 @@ section.content:nth-of-type(3) {
 	padding-block: 3rem;
 
 	position: relative;
-	background-color: var(--dark-color);
+	background-color: rgba(var(--dark-color-values), 0.3);
 	background-image:
 
 		/* horizontal lines */
@@ -168,8 +229,11 @@ section.content:nth-of-type(4) {
 	padding-block: 1rem;
 	background: radial-gradient(circle at 100% 100%,
 			rgba(var(--main-color-values), 0.8),
-			var(--dark-color) 75%);
+			transparent 75%);
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
 }
+
 .presentations-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -196,25 +260,44 @@ section.content:nth-of-type(4) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
+
 	background-color: white;
-	padding: .7rem 1.2rem;
-	border: 2px solid black;
 	border-radius: 5000px;
-	text-decoration: none;
+	border: 2px solid black;
+
 	color: black;
+	text-align: center;
+	text-decoration: none;
+
+	padding: .7rem 1.2rem;
+
+	transition: color, border-color, background-color;
+	transition-duration: 100ms;
+	transition-timing-function: ease-in-out;
 }
 
-#footer > ul {
+.presentations-container>.links-to-presentations:hover {
+	color: white;
+	background-color: var(--dark-color);
+	border-color: white;
+}
+
+#footer>h2 {
+	padding-block: 2.5rem 0;
+}
+
+#footer>ul {
 	padding: 1rem;
 	margin: 1rem;
 }
-#footer > ul a {
+
+#footer>ul a {
 	text-decoration: none;
 	color: white;
 }
-#footer > ul a:hover,
-#footer > ul a:focus {
+
+#footer>ul a:hover,
+#footer>ul a:focus {
 	text-decoration: underline solid white 1px;
 }
 
