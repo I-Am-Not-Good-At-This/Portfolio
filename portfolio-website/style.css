@@ -81,6 +81,7 @@ button:hover {
 #portfolio>.button-toggle-disco {
 	position: fixed;
 	inset: 1rem 1rem auto auto;
+	z-index: 1;
 }
 
 section {
