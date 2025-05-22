@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entreprise</title>
+    <link rel="stylesheet" href="/Portfolio/libs/reveal/reveal.css" />
+    <link rel="stylesheet" href="/Portfolio/libs/reveal/theme/moon.css" />
+    <link rel="stylesheet" href="/Portfolio/portfolio-website/presentations/style.css">
+</head>
+
+<body>
+    <div class="nav-wrapper">
+        <button class="return-link" onclick="handleReturn();"
+            style="--local-color-bg: white;--local-color-font: black;--local-color-border: rgb(179, 19, 19);">← Retour</button>
+        <button class="fs-button" onclick="fullscreen_toggle();"
+            style="--local-color-bg: white;--local-color-font: black;--local-color-border: rgb(179, 19, 19);">&#x26F6; Full Screen</button>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+            <section><img src="presentations/veille/1.png" alt="Slide 1" /></section>
+            <section><img src="presentations/veille/2.png" alt="Slide 2" /></section>
+            <section><img src="presentations/veille/3.png" alt="Slide 3" /></section>
+            <section><img src="presentations/veille/4.png" alt="Slide 4" /></section>
+            <section><img src="presentations/veille/5.png" alt="Slide 5" /></section>
+            <section><img src="presentations/veille/6.png" alt="Slide 6" /></section>
+        </div>
+    </div>
+
+    <script src="/Portfolio/libs/reveal/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            width: "80%",
+            height: "100%",
+            minScale: 0.2,
+            maxScale: 2.0,
+        });
+    </script>
+    <script>
+        let fullscreen_on = false;
+
+        function fullscreen_toggle() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+
+        function handleReturn() {
+            if (document.fullscreenElement) {
+                document.exitFullscreen().then(() => {
+                    window.location = "/Portfolio/portfolio-website/";
+                });
+            } else {
+                window.location = "/Portfolio/portfolio-website/";
+            }
+        }
+    </script>
+</body>
+
+</html>
