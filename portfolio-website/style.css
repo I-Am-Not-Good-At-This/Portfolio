@@ -212,17 +212,17 @@ section.content:nth-of-type(3)>p {
 	background-color: white;
 	color: var(--dark-color);
 	padding: .3rem;
-	border: 4px solid var(--main-color);
+	border: 4px solid rgba(var(--main-color-values), 0.9);
 	border-radius: .2rem;
 	pointer-events: none;
 
 	position: absolute;
 	inset: 100% 0 auto 0;
-	opacity: 0;
+	visibility: hidden;
 }
 
 .card:hover>.tooltip-hidden-text {
-	opacity: 1;
+	visibility: visible;
 }
 
 /* Section présentation */
