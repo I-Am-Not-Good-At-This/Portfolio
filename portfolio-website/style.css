@@ -233,6 +233,13 @@ section.content:nth-of-type(4) {
 			transparent 75%);
 	border-right: 1px solid white;
 	border-bottom: 1px solid white;
+
+	transition: background-position 450ms ease-out, background-size 450ms ease-out;
+}
+section.content:nth-of-type(4):focus-within,
+section.content:nth-of-type(4):hover {
+	background-position: 100% 100%;
+	background-size: 200% 100%;
 }
 
 .presentations-container {
@@ -252,6 +259,7 @@ section.content:nth-of-type(4) {
 	border: 2px solid white;
 	border-radius: 1rem;
 }
+
 
 .presentations-container>.links-to-presentations {
 	width: 100%;
